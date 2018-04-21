@@ -2,6 +2,9 @@
 package com.educationit.java.standard.integrator.beans;
 
 
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+
+
 public class User {
 
     private String login;
@@ -16,6 +19,14 @@ public class User {
         super ();
     }
 
+
+    public User (String login, String password) {
+
+        super ();
+
+        this.login = login;
+        this.password = password;
+    }
 
     public User (String login, String password, boolean enabled) {
 
@@ -53,5 +64,15 @@ public class User {
     public void setEnabled (boolean enabled) {
 
         this.enabled = enabled;
+    }
+
+    @Override
+    public String toString () {
+
+        if (isEmpty (login) && isEmpty (password)) {
+            return "User unknown";
+        } else {
+            return String.format ("User [%s, %s]", this.login, this.password);
+        }
     }
 }

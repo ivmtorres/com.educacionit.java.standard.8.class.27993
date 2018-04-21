@@ -55,6 +55,8 @@ public abstract class AbstractSecurity {
 
     protected abstract void doCheckUserIsEnabled (User user) throws SecutiryException;
 
+    protected abstract void doCheckPassword (User user) throws SecutiryException;
+
 
     /**
      *
@@ -74,5 +76,8 @@ public abstract class AbstractSecurity {
 
         logger.debug (String.format ("Calling doCheckUserIsEnabled method with %s...", user.toString ()));
         this.doCheckUserIsEnabled (user);
+
+        logger.debug (String.format ("Calling doCheckPassword method with %s...", user.toString ()));
+        this.doCheckPassword (user);
     }
 }
